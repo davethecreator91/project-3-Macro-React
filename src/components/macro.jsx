@@ -1,7 +1,6 @@
 import { useState } from "react";
 
-const macro = () => {
-
+const Macro = () => {
 
 
 
@@ -11,9 +10,10 @@ const macro = () => {
 
     return (
 <>
+<h1>Test</h1>
 </>
     );
 }
 
 
-export default macro;
+export default Macro;
