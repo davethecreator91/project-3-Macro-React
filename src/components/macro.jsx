@@ -18,8 +18,8 @@ const Macro = () => {
 
   return (
     <>
-      <h1>Foods</h1>
-      <div className="foodsCardDiv">
+      <h1>Today's Meals</h1>
+      <div className="">
         {foods.map((food, index) => (
           <div className="foodsCard" key={index}>
             <p>Name: {food.food} </p>
