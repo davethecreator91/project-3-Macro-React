@@ -49,11 +49,8 @@ const Nav = () => {
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <a className="navbar-brand">
-            Navbar scroll
-          </a>
+          <a className="navbar-brand">Macro Tracker</a>
           <button
-            
             className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
@@ -68,43 +65,55 @@ const Nav = () => {
           <div className="collapse navbar-collapse" id="navbarScroll">
             <ul
               className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
-            //   style={"--bs-scroll-height: 100px;"}
+              //   style={"--bs-scroll-height: 100px;"}
             >
               <li className="nav-item">
-                <button className="nav-link active btn btn-link" onClick={() => handleClick("Home")}>
+                <button
+                  className="nav-link active btn btn-link"
+                  onClick={() => handleClick("Home")}
+                >
                   Home
                 </button>
               </li>
               <li className="nav-item">
-                <button className="nav-link btn btn-link" onClick={() => handleClick("AddFood")}>
+                <button
+                  className="nav-link btn btn-link"
+                  onClick={() => handleClick("AddFood")}
+                >
                   Add Food
                 </button>
               </li>
               <li className="nav-item dropdown">
-                <a
+                <button
                   className="nav-link dropdown-toggle"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Dropdown
-                </a>
+                  Goals and more
+                </button>
                 <ul className="dropdown-menu">
                   <li>
-                    <button className="dropdown-item btn btn-link" onClick={() => handleClick("Macro")}>
-                      Macros
+                    <button
+                      className="dropdown-item btn btn-link"
+                      onClick={() => handleClick("Macro")}
+                    >
+                      Your Macros
                     </button>
                   </li>
                   <li>
-                  <button className="dropdown-item btn btn-link" >
-                      abn othrt Action
+                    <button className="dropdown-item btn btn-link">
+                      Just the facts
                     </button>
                   </li>
                   <li>
                     <hr className="dropdown-divider"></hr>
                   </li>
                   <li>
-                  <button className="dropdown-item btn btn-link" >
-                      somthing
+                    <button
+                      className="dropdown-item btn btn-link"
+                      onClick={() => handleClick("Goals")}
+                    >
+                      Goals
                     </button>
                   </li>
                 </ul>
