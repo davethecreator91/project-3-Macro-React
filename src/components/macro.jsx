@@ -18,11 +18,15 @@ const Macro = () => {
     fetchFoods();
   }, []);
 
-  const handleRemoveFood = (index) => {
-    const removeFood = foods[index];
-    const updatedFood = foods.filter((_, idx) => idx !== index);
-    setFoods(updatedFood);
+  const handleRemoveFood = (id) => {
+    setFoods((prevFoods) => prevFoods.filter((food) => food._id !== id));
   };
+
+  //   (index) => {
+  //     const removeFood = foods[index];
+  //     const updatedFood = foods.filter((_, idx) => idx !== index);
+  //     setFoods(updatedFood);
+  //   };
 
   const handleUpdateRefresh = (updatedData) => {
     setFoods((prevFoods) =>
@@ -30,7 +34,7 @@ const Macro = () => {
         food._id === updatedData._id ? updatedData : food
       )
     );
-    setUpdateFoods(null)
+    setUpdateFoods(null);
   };
 
   return (
@@ -41,13 +45,17 @@ const Macro = () => {
         <div className="foodsCard" key={index}>
           <ul>
             <li>
+              <button 
+                className="btn btn-outline-danger"
+                onClick={() => handleRemoveFood(food._id)}
+              >
+                X
+              </button>
               <p>Name: {food.food} </p>
               <p>Calories: {food.calories}</p>
               <p>Protein: {food.protein}</p>
               <p>Carbs: {food.carbs}</p>
-              <button onClick={() => handleRemoveFood(index)}>
-                Remove Food
-              </button>
+
               <button onClick={() => setUpdateFoods(food._id)}>
                 Update {food.food}
               </button>
