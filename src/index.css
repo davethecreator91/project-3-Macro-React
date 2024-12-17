@@ -12,7 +12,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* background-image: url(https://cdn-ceacn.nitrocdn.com/SIrqBgOjtbxTLWLmLyixsEUnJkxBXdDt/assets/images/optimized/rev-741e4d4/doit.software/wp-content/uploads/2024/10/best-free-macro-tracking-apps-list.png); */
-
+  /* display: flex; */
 }
 
 a {
@@ -26,18 +26,19 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  flex-direction: row;
+  /* display: flex; */
+  /* flex-direction: row; */
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
   flex-wrap: wrap;
-
 }
 
 h1 {
+  display: flex;
   font-size: 3.2em;
   line-height: 1.1;
+  justify-content: center;
 }
 
 button {
@@ -59,8 +60,8 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-.btn-outline-danger{
-   margin: -8px 0px 0px -40px;
+.btn-outline-danger {
+  margin: -8px 0px 0px -40px;
 }
 /* .foodsCardsDiv {
   display: flex;
@@ -74,12 +75,12 @@ button:focus-visible {
 } */
 
 .foodsCard {
-  /* display: flex; */
+  display: flex;
   /* align-items: center; */
   flex-wrap: wrap;
   flex-direction: row;
   /* padding: 5px; */
-  width: 70%;
+  /* width: 70%; */
   /* margin: 15px 10px; */
   background-color: rgb(98, 160, 79);
   /* color: black; */
@@ -87,21 +88,22 @@ button:focus-visible {
 }
 
 .renderComponent {
+  /* display: flex; */
   justify-items: center;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: 00px 0px 0px 600px;
+  /* margin: 00px 0px 0px 600px; */
   /* border: 2px solid red; */
   color: black;
-  
+row-gap: 40px;
 }
 
 /* .navBar { */
-  /* display: flex; */
-  /* border: 2px solid blue; */
-  /* gap: 250px; */
-  /* justify-self: space-evenly; */
-  /* margin: 600px 0px 0px 600px; */
+/* display: flex; */
+/* border: 2px solid blue; */
+/* gap: 250px; */
+/* justify-self: space-evenly; */
+/* margin: 600px 0px 0px 600px; */
 /* } */
 
 img {
@@ -116,7 +118,6 @@ ul {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-
 }
 
 li {
@@ -129,7 +130,6 @@ li {
   margin: 10px;
   color: white;
 }
-
 
 @media (prefers-color-scheme: light) {
   :root {

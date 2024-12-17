@@ -6,6 +6,7 @@ import Nav from "./components/Nav.jsx";
 const App = () => {
   return (
     <>
+    
       <h1>Welcome to the Macro App!</h1>
 
       <img
