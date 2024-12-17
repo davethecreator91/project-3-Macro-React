@@ -1,3 +1,7 @@
+import "./App.css";
+
+import Nav from "./components/Nav.jsx";
+
 import { useState } from 'react'
 import Macro from "./components/macro.jsx"
 import GoalsComponent from "./components/GoalBuilder.jsx"
@@ -7,15 +11,22 @@ import FetchApi from './components/FetchAPI.jsx'
 
 
 const App = () => {
-
   return (
     <>
-    <h1>Welcome to the Macro App!</h1>
+      <h1>Welcome to the Macro App!</h1>
+
+      <img
+        src="https://www.motionfitnessbali.com/wp-content/uploads/2019/03/Pie_chart_of_food_products.jpg"
+        alt="Know your Macros: Carbs, protein and fats shown"
+      />
+
+      <Nav />
+    
     <Macro />
     <GoalsComponent />
     <FetchApi />
     </>
   );
-}
+};
 
-export default App
+export default App;
