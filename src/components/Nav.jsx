@@ -79,6 +79,14 @@ const Nav = () => {
                   Your Macros
                 </button>
               </li>
+              <li className="nav-item">
+                <button
+                  className="nav-link btn btn-link"
+                  onClick={() => handleClick("FetchApi")}
+                >
+                  Find Food
+                </button>
+              </li>
               <li className="nav-item dropdown">
                 <button
                   className="nav-link dropdown-toggle"
@@ -117,7 +125,7 @@ const Nav = () => {
                 </a>
               </li>
             </ul>
-            <form className="d-flex" role="search">
+            {/* <form className="d-flex" role="search">
               <input
                 className="form-control me-2"
                 onClick={() => handleClick("FetchApi")}
@@ -130,7 +138,7 @@ const Nav = () => {
               type="submit">
                 Search
               </button>
-            </form>
+            </form> */}
           </div>
         </div>
       </nav>
