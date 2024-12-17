@@ -24,15 +24,7 @@ console.log("data being sent to backend:", data);
     }
   };
 
-  return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="food">Food:</label>
-        <input type="text" name="food" id="food" />
-        <button type="submit">Add Food</button>
-      </form>
-    </div>
-  );
+
 };
 
 export default AddFood;

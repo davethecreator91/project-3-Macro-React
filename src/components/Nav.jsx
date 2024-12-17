@@ -22,42 +22,21 @@ const Nav = () => {
     if (navItem === "Home") {
       return <Home />;
     }
-    if (navItem === "GoalBuilder") {
+    if (navItem === "GoalComponent") {
       return <GoalComponent />;
     }
-    if (navItem === "FetchAPI") {
+    if (navItem === "FetchApi") {
       return <FetchApi />;
     }
     return null;
   };
-  // ==========original======
-  //     return (
-  //       <>
-  //         <div className="navBar">
-  //           <button onClick={() => handleClick("AddFood")} type="button">
-  //             Add Food
-  //           </button>
-  //           <button onClick={() => handleClick("Home")} type="button">
-  //             Home
-  //           </button>
-  //           <button onClick={() => handleClick("Macro")} type="button">
-  //             Macros
-  //           </button>
-  //           <button onClick={() => handleClick("Goals")} type="button">
-  //             Goals
-  //           </button>
-  //         </div>
-  //         <div className="renderComponent">{renderComponent()}</div>
-  //       </>
-  //     );
-  //   };
 
   //=====boootstrap
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <a className="navbar-brand">Macro Tracker</a>
+          <a className="navbar-brand">Macro App</a>
           <button
             className="navbar-toggler"
             type="button"
@@ -83,12 +62,21 @@ const Nav = () => {
                   Home
                 </button>
               </li>
+              
               <li className="nav-item">
                 <button
                   className="nav-link btn btn-link"
-                  onClick={() => handleClick("AddFood")}
+                  onClick={() => handleClick("GoalComponent")}
                 >
-                  Add Food
+                  Goal Builder
+                </button>
+              </li>
+              <li className="nav-item">
+                <button
+                  className="nav-link btn btn-link"
+                  onClick={() => handleClick("Macro")}
+                >
+                  Your Macros
                 </button>
               </li>
               <li className="nav-item dropdown">
@@ -97,15 +85,15 @@ const Nav = () => {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Goals and more
+                  More!
                 </button>
                 <ul className="dropdown-menu">
                   <li>
                     <button
                       className="dropdown-item btn btn-link"
-                      onClick={() => handleClick("Macro")}
+            
                     >
-                      Your Macros
+                      Your Profile
                     </button>
                   </li>
                   <li>
@@ -117,11 +105,8 @@ const Nav = () => {
                     <hr className="dropdown-divider"></hr>
                   </li>
                   <li>
-                    <button
-                      className="dropdown-item btn btn-link"
-                      onClick={() => handleClick("Goals")}
-                    >
-                      Goals
+                    <button className="dropdown-item btn btn-link">
+                      Something Else
                     </button>
                   </li>
                 </ul>
@@ -135,11 +120,14 @@ const Nav = () => {
             <form className="d-flex" role="search">
               <input
                 className="form-control me-2"
+                onClick={() => handleClick("FetchApi")}
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
               ></input>
-              <button className="btn btn-outline-success" type="submit">
+              <button className="btn btn-outline-success" 
+              
+              type="submit">
                 Search
               </button>
             </form>
@@ -152,3 +140,25 @@ const Nav = () => {
 };
 
 export default Nav;
+
+// ==========original======
+//     return (
+//       <>
+//         <div className="navBar">
+//           <button onClick={() => handleClick("AddFood")} type="button">
+//             Add Food
+//           </button>
+//           <button onClick={() => handleClick("Home")} type="button">
+//             Home
+//           </button>
+//           <button onClick={() => handleClick("Macro")} type="button">
+//             Macros
+//           </button>
+//           <button onClick={() => handleClick("Goals")} type="button">
+//             Goals
+//           </button>
+//         </div>
+//         <div className="renderComponent">{renderComponent()}</div>
+//       </>
+//     );
+//   };

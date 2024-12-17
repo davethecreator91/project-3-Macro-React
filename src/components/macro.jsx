@@ -22,12 +22,6 @@ const Macro = () => {
     setFoods((prevFoods) => prevFoods.filter((food) => food._id !== id));
   };
 
-  //   (index) => {
-  //     const removeFood = foods[index];
-  //     const updatedFood = foods.filter((_, idx) => idx !== index);
-  //     setFoods(updatedFood);
-  //   };
-
   const handleUpdateRefresh = (updatedData) => {
     setFoods((prevFoods) =>
       prevFoods.map((food) =>
@@ -44,8 +38,8 @@ const Macro = () => {
       {foods.map((food, index) => (
         <div className="foodsCard" key={index}>
           <ul>
-            <li>
-              <button 
+            <li className="myMacros">
+              <button
                 className="btn btn-outline-danger"
                 onClick={() => handleRemoveFood(food._id)}
               >
@@ -76,3 +70,20 @@ const Macro = () => {
 };
 
 export default Macro;
+
+
+
+
+
+
+
+
+
+
+
+
+//   (index) => {
+//     const removeFood = foods[index];
+//     const updatedFood = foods.filter((_, idx) => idx !== index);
+//     setFoods(updatedFood);
+//   };
