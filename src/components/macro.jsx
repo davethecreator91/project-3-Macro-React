@@ -16,19 +16,31 @@ const Macro = () => {
     fetchFoods();
   }, []);
 
+const handleRemoveFood = (index) => {
+    const removeFood = foods[index];
+    const updatedFood = foods.filter((_, idx) => idx !==index)
+    setFoods(updatedFood)
+}
+
   return (
     <>
       <h1>Today's Meals</h1>
-      <div className="">
-        {foods.map((food, index) => (
-          <div className="foodsCard" key={index}>
+
+      {foods.map((food, index) => (
+        //   <div className="foodsCard" key={index}>
+        <ul key={index}>
+          <li>
             <p>Name: {food.food} </p>
             <p>Calories: {food.calories}</p>
             <p>Protein: {food.protein}</p>
             <p>Carbs: {food.carbs}</p>
-          </div>
-        ))}
-      </div>
+            <button onClick={() => handleRemoveFood(index)}>
+              Remove Food
+            </button>
+          </li>
+        </ul>
+        //   </div>
+      ))}
     </>
   );
 };

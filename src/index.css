@@ -12,6 +12,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url(https://cdn-ceacn.nitrocdn.com/SIrqBgOjtbxTLWLmLyixsEUnJkxBXdDt/assets/images/optimized/rev-741e4d4/doit.software/wp-content/uploads/2024/10/best-free-macro-tracking-apps-list.png);
+  flex-wrap: wrap;
+
 }
 
 a {
@@ -30,6 +32,8 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  flex-wrap: wrap;
+
 }
 
 h1 {
@@ -67,23 +71,23 @@ button:focus-visible {
   border-color: black;
 } */
 
-.foodsCard {
+/* .foodsCard { */
   display: flex;
   /* align-items: center; */
-  /* flex-wrap: wrap; */
-  flex-direction: column;
+  flex-wrap: wrap;
+  /* flex-direction: row; */
   padding: 5px;
   /* width: 30%; */
   margin: 15px 10px;
   background-color: rgb(155, 155, 155);
   color: black;
   /* border: 2px solid red; */
-}
+/* } */
 
 .renderComponent {
   justify-items: center;
   flex-direction: row;
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
   /* margin-top: 200px; */
   border: 2px solid red;
   color: black;
@@ -104,6 +108,17 @@ img {
   margin: -20px 0px 0px 500px;
   max-height: 60%;
 }
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+li {
+  list-style: none;
+  margin: 10px;
+}
+
 
 @media (prefers-color-scheme: light) {
   :root {
