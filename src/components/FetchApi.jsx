@@ -4,7 +4,7 @@ import AddFood from "./addFood";
 const FetchApi = () => {
   const [food, setFood] = useState("");
   const [nutrition, setNutrition] = useState([]);
-  const [showAddFood, setShowAddFood] = useState(false); // State to toggle AddFood component
+  // const [showAddFood, setShowAddFood] = useState(false); // State to toggle AddFood component
 
   const API_KEY = "cNb9pzrOR67/og3H07zGeg==zISrajMhjkZmlz0H";
   const API_URL = "https://api.calorieninjas.com/v1/nutrition?query=";
@@ -22,13 +22,11 @@ const FetchApi = () => {
     const data = await response.json();
     console.log(data.items);
     setNutrition(data.items || []);
-    //add to Macros array
-    if (data.items && data.items.length > 0) {
-      sendNutritionToMacrosAPI(data.items);
-    }
-  };
+   };
+
+  //mapping through nutrition
   const sendNutritionToMacrosAPI = async (nutritionData) => {
-    const macrosData = nutritionData.map((item) => ({
+    const macrosData = nutritionData.map(item => ({
       food: item.name,
       calories: item.calories,
       protein: item.protein_g,
@@ -42,12 +40,22 @@ const FetchApi = () => {
       },
       body: JSON.stringify(macrosData),
     });
+    
     if (response.ok) {
       console.log("Nutrition data sent to macros API successfully!");
     } else {
       console.log("Failed to send data to macros API.");
     }
   };
+
+  // Send nutrition info to macros API
+  const handleAddFood = () => {
+   
+    if (nutrition.length > 0) {
+      sendNutritionToMacrosAPI(nutrition);
+      // setShowAddFood(true)
+    }
+  }
 
   return (
     <div>
@@ -64,7 +72,7 @@ const FetchApi = () => {
         <div>
           <h2>Nutrition Information:</h2>
           <ul>
-            <button onClick={() => setShowAddFood(true)}>Add Food</button>
+            <button onClick={handleAddFood}>Add Food</button>
             {nutrition.map((item, index) => (
               <li key={index}>
                 <p>
@@ -82,7 +90,7 @@ const FetchApi = () => {
               </li>
             ))}
           </ul>
-          {showAddFood && <AddFood />}
+          {/* {showAddFood && <AddFood />} */}
         </div>
       )}
 

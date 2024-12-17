@@ -18,8 +18,19 @@ const Macro = () => {
     fetchFoods();
   }, []);
 
-  const handleRemoveFood = (id) => {
-    setFoods((prevFoods) => prevFoods.filter((food) => food._id !== id));
+  const handleRemoveFood = async (id) => {
+    try {
+        const response = await fetch(`http://localhost:3001/macros/${id}`, {
+            method: 'DELETE',
+        });
+        if (response.ok) {
+                setFoods((prevFoods) => prevFoods.filter((food) => food._id !== id));
+        } else {
+            console.error("Failed to Remve Food")
+        }
+    } catch (error) {
+        console.error("Error in removing from Database:", error)
+    }
   };
 
   const handleUpdateRefresh = (updatedData) => {
