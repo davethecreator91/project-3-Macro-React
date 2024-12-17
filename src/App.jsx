@@ -2,13 +2,6 @@ import "./App.css";
 
 import Nav from "./components/Nav.jsx";
 
-import { useState } from 'react'
-import Macro from "./components/macro.jsx"
-import GoalsComponent from "./components/GoalBuilder.jsx"
-import './App.css'
-import FetchApi from './components/FetchAPI.jsx'
-
-
 
 const App = () => {
   return (
@@ -21,11 +14,7 @@ const App = () => {
       />
 
       <Nav />
-    
-    <Macro />
-    <GoalsComponent />
-    <FetchApi />
-    </>
+      </>
   );
 };
 

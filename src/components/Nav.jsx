@@ -2,6 +2,8 @@ import { useState } from "react";
 import AddFood from "./addFood.jsx";
 import Home from "./Home.jsx";
 import Macro from "./macro.jsx";
+import GoalComponent from "./GoalBuilder.jsx";
+import FetchApi from "./FetchApi.jsx";
 
 const Nav = () => {
   const [navItem, setNavItem] = useState("");
@@ -19,6 +21,12 @@ const Nav = () => {
     }
     if (navItem === "Home") {
       return <Home />;
+    }
+    if (navItem === "GoalBuilder") {
+      return <GoalComponent />;
+    }
+    if (navItem === "FetchAPI") {
+      return <FetchApi />;
     }
     return null;
   };
