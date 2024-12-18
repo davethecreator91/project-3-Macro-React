@@ -1,12 +1,14 @@
-import { useState } from 'react';
+import { useState } from "react";
+import AddFood from "./addFood";
 
 const FetchApi = () => {
+  const [food, setFood] = useState("");
+  const [nutrition, setNutrition] = useState([]);
+  // const [showAddFood, setShowAddFood] = useState(false); // State to toggle AddFood component
 
-const [food, setFood] = useState('');
-const [nutrition, setNutrition] = useState([]);
-
-  const API_KEY = 'cNb9pzrOR67/og3H07zGeg==zISrajMhjkZmlz0H';
-  const API_URL = 'https://api.calorieninjas.com/v1/nutrition?query=';
+  const API_KEY = "cNb9pzrOR67/og3H07zGeg==zISrajMhjkZmlz0H";
+  const API_URL = "https://api.calorieninjas.com/v1/nutrition?query=";
+  const MACROS_API_URL = `http://localhost:3001/macros`;
 
   const handleChange = (event) => {
     setFood(event.target.value);
@@ -15,12 +17,45 @@ const [nutrition, setNutrition] = useState([]);
   const handleSubmit = async (event) => {
     event.preventDefault();
     const response = await fetch(`${API_URL}${food}`, {
-      headers: { 'X-Api-Key': API_KEY },
+      headers: { "X-Api-Key": API_KEY },
     });
     const data = await response.json();
-    console.log(data.items); 
+    console.log(data.items);
     setNutrition(data.items || []);
+   };
+
+  //mapping through nutrition
+  const sendNutritionToMacrosAPI = async (nutritionData) => {
+    const macrosData = nutritionData.map(item => ({
+      food: item.name,
+      calories: item.calories,
+      protein: item.protein_g,
+      carbs: item.carbohydrates_total_g,
+    }));
+
+    const response = await fetch(MACROS_API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(macrosData),
+    });
+    
+    if (response.ok) {
+      console.log("Nutrition data sent to macros API successfully!");
+    } else {
+      console.log("Failed to send data to macros API.");
+    }
   };
+
+  // Send nutrition info to macros API
+  const handleAddFood = () => {
+   
+    if (nutrition.length > 0) {
+      sendNutritionToMacrosAPI(nutrition);
+      // setShowAddFood(true)
+    }
+  }
 
   return (
     <div>
@@ -37,15 +72,25 @@ const [nutrition, setNutrition] = useState([]);
         <div>
           <h2>Nutrition Information:</h2>
           <ul>
+            <button onClick={handleAddFood}>Add Food</button>
             {nutrition.map((item, index) => (
               <li key={index}>
-                <p><strong>Food:</strong> {item.name}</p>
-                <p><strong>Calories:</strong> {item.calories}</p>
-                <p><strong>Protein:</strong> {item.protein_g} g</p>
-                <p><strong>Carbs:</strong> {item.carbohydrates_total_g} g</p>
+                <p>
+                  <strong>Food:</strong> {item.name}
+                </p>
+                <p>
+                  <strong>Calories:</strong> {item.calories}
+                </p>
+                <p>
+                  <strong>Protein:</strong> {item.protein_g} g
+                </p>
+                <p>
+                  <strong>Carbs:</strong> {item.carbohydrates_total_g} g
+                </p>
               </li>
             ))}
           </ul>
+          {/* {showAddFood && <AddFood />} */}
         </div>
       )}
 
@@ -56,4 +101,4 @@ const [nutrition, setNutrition] = useState([]);
   );
 };
 
-export default FetchApi
+export default FetchApi;
